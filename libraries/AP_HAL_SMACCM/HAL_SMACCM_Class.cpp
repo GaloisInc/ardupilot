@@ -55,6 +55,7 @@ void HAL_SMACCM::init(int argc,char* const argv[]) const
   spi->init(NULL);
   storage->init(NULL);
   rcin->init(NULL);
+  rcout->init(NULL);
 }
 
 const HAL_SMACCM AP_HAL_SMACCM;
