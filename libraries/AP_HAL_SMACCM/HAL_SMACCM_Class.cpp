@@ -7,10 +7,16 @@
 #include "HAL_SMACCM_Class.h"
 #include "AP_HAL_SMACCM_Private.h"
 
+#ifdef CONFIG_GCS_UART
+# define UART_A_DRIVER CONFIG_GCS_UART
+#else
+# define UART_A_DRIVER usart1
+#endif
+
 using namespace SMACCM;
 
 // XXX make sure these are assigned correctly
-static SMACCMUARTDriver uartADriver(uart5);
+static SMACCMUARTDriver uartADriver(UART_A_DRIVER);
 static SMACCMUARTDriver uartBDriver(usart6);
 static SMACCMUARTDriver uartCDriver(NULL);
 
