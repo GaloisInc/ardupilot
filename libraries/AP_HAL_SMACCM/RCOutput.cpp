@@ -18,6 +18,7 @@ void SMACCMRCOutput::init(void* unused)
     ardrone_init();
     ardrone_motor_init();
     ardrone_motor_init();
+    ardrone_motor_init();
     hal.scheduler->register_timer_process(update_motors);
 }
 
@@ -53,7 +54,7 @@ static void update_motors(uint32_t now)
 {
     if (now - last_motor_update > 5000) { // 5ms update rate
         last_motor_update = now;
-        ardrone_motor_set(periods[0], periods[1], periods[2], periods[3]);
+        ardrone_motor_set(periods[2], periods[0], periods[3], periods[1]);
     }
 }
 
